@@ -1,0 +1,5 @@
+<% if(typeof locals.session_data !== 'undefined') { %>
+<p><strong>Email</strong> <%= locals.session_data.email %></p>
+<p><strong>Username</strong> <%= locals.session_data.username %></p>
+<a href="/logout">logout...</a>
+<% } %>
