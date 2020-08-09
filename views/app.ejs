@@ -16,7 +16,10 @@
     <div id="pool"></div>
     <div id="chat-box">
         <small id="target"></small>
+        <div id="chat"></div>
     </div>
+    <textarea name="msg" id="txt-area" cols="50" rows="5"></textarea>
+    <button id="msg-btn">Send</button>
     <script>let username = "<%=locals.session_data.username%>";</script>
     <script src="/js/app.js"></script>
 </body>
