@@ -33,16 +33,20 @@ server.listen(port, () => {
 
 
 io.on('connection', (socket) => {
-    socket.emit('users-list', { users: available_users });
+    let users = [];
+    available_users.forEach((item, index) => {
+        users.push(item.username);
+    });
+    socket.emit('users-list', { users });
     socket.on('connection-data', (data) => {
         available_users.push({ username: data.username, id: socket.id });
-        socket.broadcast.emit('add-user', { username: data.username, id: socket.id });
+        socket.broadcast.emit('add-user', data.username);
     });
     socket.on('disconnect', () => {
         available_users.forEach((item, index) => {
             if (item.id === socket.id) {
                 available_users.splice(index, 1);
-                socket.broadcast.emit('rm-user', { username: item.username, id: item.id });
+                socket.broadcast.emit('rm-user', item.username);
             }
         });
 

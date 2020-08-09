@@ -1,0 +1,11 @@
+#chat-box{
+    /* width:40%; */
+    border:1px solid black;
+    min-height:300px;
+    margin:30px 0;
+    display:none;
+}
+#target{
+    background-color:black;
+    color:white;
+}
