@@ -45,6 +45,7 @@ module.exports = {
         return new Promise((resolve, reject) => {
             con.query(`SELECT * FROM users WHERE email LIKE '${email}' AND pwd LIKE '${password}';`, (error, result) => {
                 if (error) {
+                    console.log("A DATABASE ERROR HAS OCCURED !!!!!!");
                     reject(error);
                 }
                 else {
